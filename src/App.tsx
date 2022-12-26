@@ -630,7 +630,7 @@ export default class Home extends Component<{}, S> {
                       </TryBoxProgressBackground>
                     </TryBox>)}
                   </TryContainer>
-                  <Desc>'왁들'은 사이트를 새로고침하면 단어는 초기화되며 다시 할수 있습니다.</Desc>
+                  <Desc>"왁들"은 사이트를 새로고침하면 단어는 초기화되며 다시 할수 있습니다.</Desc>
                   <Components>
                     {this.state.gameStatus === "end" && <Button marginTop={true} onClick={() => navigator.clipboard.writeText(statText(this.state.status, this.state.linkShare, this.state.emptyShow))}>결과 복사하기</Button>}
                     <Button marginTop={true} onClick={() => location.reload()}>다시하기</Button>
