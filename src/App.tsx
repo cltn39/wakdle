@@ -304,7 +304,7 @@ const TryBoxProgressValue = styled.div<{ width: number; }>`
 
   ${(props) => css`
     width: ${props.width}%;
-    color: ${~~props.width === 0 ? "black" : "rgb(219, 234, 254)"};
+    color: ${Math.floor(props.width) === 0 ? "black" : "rgb(219, 234, 254)"};
     ${props.width < 100 && "border-top-left-radius: 9999px; border-bottom-left-radius: 9999px;"}
     ${props.width === 100 && "border-radius: 9999px;"}
   `}
@@ -460,6 +460,15 @@ export default class Home extends Component<{}, S> {
         return st;
       }),
       currentY: this.state.currentY+1
+    }, () => {
+      if (!this.state.status.some(v=>v.some(c=>c===0))) {
+        toast("기회를 다 썼어요.", {
+          type: "error",
+          autoClose: 1500
+        });
+        this.setState({ gameStatus: "end", modal: true, type: "stats" });
+        return;
+      }
     });
   }
 
