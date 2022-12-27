@@ -603,7 +603,7 @@ export default class Home extends Component<{}, S> {
                   <OptionContainer>
                     <OptionTitle>
                       <p>링크 표기</p>
-                      <Desc>wakdle.vercel.app를 결과에 표기합니다.</Desc>
+                      <Desc>웹사이트 링크를 결과에 표기합니다.</Desc>
                     </OptionTitle>
                     <OptionSlider open={this.state.linkShare}>
                       <OptionSliderValue onClick={() => this.setState({ linkShare: !this.state.linkShare })} />
