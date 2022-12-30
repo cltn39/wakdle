@@ -503,18 +503,18 @@ export default class Home extends Component<{}, S> {
     return (
       <Container>
         <Title>
-            <Waktle>{APP_NAME} - 한국어</Waktle>
-            <Icon onClick={() => this.setState({ modal: true, type: "similar" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <Waktle id="wakdle">{APP_NAME} - 한국어</Waktle>
+            <Icon id="hint" onClick={() => this.setState({ modal: true, type: "similar" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
             </Icon>
-            <Icon onClick={() => this.setState({ modal: true, type: "setting" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <Icon id="setting" onClick={() => this.setState({ modal: true, type: "setting" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </Icon>
-            <Icon onClick={() => this.setState({ modal: true, type: "howtoplay" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <Icon id="howtoplay" onClick={() => this.setState({ modal: true, type: "howtoplay" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </Icon>
-            <Icon onClick={() => this.setState({ modal: true, type: "stats" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <Icon id="stats" onClick={() => this.setState({ modal: true, type: "stats" })} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
             </Icon>
         </Title>
@@ -557,7 +557,7 @@ export default class Home extends Component<{}, S> {
                 : this.state.type === "stats"
                 ? "통계"
                 : this.state.type === "similar"
-                ? "관련된 단어"
+                ? "도움 주기"
                 : "(?)"
               }
             </ModalTitle>
@@ -565,7 +565,7 @@ export default class Home extends Component<{}, S> {
               {
                 this.state.type === "whatisit"
                 ? <>
-                  <Desc>이 놀이는 <Link href="https://kordle.kr/" tab-index="0">꼬들</Link>을 참조하여 만든 것입니다. "왁들"의 어휘들은 왁타버스 멤버 / 밈 중 적절하게 사용할 만한 것들로 가져왔습니다. 또한 원 놀이를 <Link href="https://www.powerlanguage.co.uk/wordle/">여기</Link>서 해 볼 수 있습니다. "왁들"은 사이트를 새로고침하면 단어가 초기화되며 몇번이고 재도전할 수 있습니다.</Desc>
+                  <Desc>이 놀이는 <Link href="https://kordle.kr/" tab-index="0">꼬들</Link>을 참조하여 만든 것입니다. "왁들"의 어휘들은 왁타버스 멤버 / 밈 중 적절하게 사용할 만한 것들로 가져왔습니다. 또한 원 놀이를 <Link href="https://www.nytimes.com/games/wordle/index.html">여기</Link>서 해 볼 수 있습니다. "왁들"은 사이트를 새로고침하면 단어는 초기화되며 다시 할수 있습니다.</Desc>
                   <br />
                   <Link href="https://wak-higher-lower.vercel.app">더 많이 더 적게 해보기</Link>
                 </>
@@ -647,7 +647,7 @@ export default class Home extends Component<{}, S> {
                 </>
                 : this.state.type === "similar"
                 ? <>
-                  <Desc>유사도가 높은 것끼리 모아두었지만 유사도가 높은 순으로 정렬되어 있지 않고 무작위로 순서가 섞여 있습니다. 물론, 이 중에서 정답도 있습니다.</Desc>
+                  <Desc>유사도가 높은 것끼리 모아두었지만 유사도가 높은 순으로 정렬되어 있지 않고 무작위로 순서가 섞여 있습니다. <b>물론, 이 중에서 정답도 있습니다.</b></Desc>
                   <br />
                   {this.state.similar.map((similar, idx) => <Desc active={this.state.gameStatus === "end" && this.state.answer === similar.word} key={idx}>{similar.word}</Desc>)}
                 </>
